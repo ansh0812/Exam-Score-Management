@@ -11,8 +11,19 @@ require('./connection.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Marks</title>
+    <link rel="icon" href="logo.png" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<style>
+    @media all and (max-width: 968px){
 
+  .del{
+    width:100%;
+    margin-top:10%;
+   
+  }
+}
+
+</style>
 </head>
 
 <body style="background-color:#292b2c">
@@ -214,7 +225,7 @@ if($result){
             $srno = 0;
             $sql = "SELECT * FROM marks where examtype='$test' and examstd='$standard' ORDER BY $sort  ";
             $result = mysqli_query($con, $sql);
-            echo '<br><br><div class="container  text-center p-0"><table class="table table-responsive" style="color:whitesmoke;">
+            echo '<br><br><div class="container table-responsive-lg text-center p-0"><table class="table " style="color:whitesmoke;">
     <thead >
       <tr>
         <th scope="col" class="table-dark" style="color:#F39C12">Sr No</th>

@@ -12,11 +12,27 @@ require('./connection.php');
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="icon" href="logo.png" >
+  <title>Student Marks</title>
+  <style>
+    .student-marks-table{
+width:21rem;
+    }
+    .table{
+      color:white;
+    }
+    @media all and (max-width: 968px){
 
-  <title>Hello, world!</title>
+.student-marks-table{
+  width:80%;
+  margin-left:10%;
+ margin-right:10%;
+}
+}
+  </style>
 </head>
 
-<body><?php
+<body style="background-color:#292b2c;color:#ffffff!important;"><?php
       require('./nav.php');
       ?>
   <form action="studentmarks.php?id=<?php echo $_GET['id']; ?>" method="POST">
@@ -54,7 +70,8 @@ require('./connection.php');
     </div>
   </form>
   <?php
-echo '<div class="container"><br><div class="row"><br>';
+echo '<div class="container"><br><div class="row">';
+// <br>
   if (isset($_POST['standard'])) {
 
 
@@ -66,47 +83,48 @@ echo '<div class="container"><br><div class="row"><br>';
       $sql = "SELECT * FROM marks where srno= '$sno' and examstd='$standard' and examtype=$i ";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
-          
-              echo '<div class="col"><div class="card border-dark mb-3" style="max-width: 25rem;" >
-            <div class="card-header  border-dark text-center" style="background-color:#292b2c;color:#F39C12">  TEST  '.$i.'  </div>
-            <div class="cards border-dark" style="width: 25rem;">
-            <ul class="border-right border-left border-dark list-group list-group-flush " >
-            <div class="row ">
-            <div class="col text-center">
-              <li class="list-group-item"  style="border:none;padding:.5rem .2rem;">ENGLISH - ' . $row["English"] . '   </li>
-            </div>
-              <div class="col text-center">      <li class="list-group-item" style="border:none;padding:.5rem .2rem">Hindi - ' . $row["Hindi"] . ' </li>
-              </div>
-              </div>
-              <div class="row">
-              <div class="col text-center">
-                <li class="list-group-item"  style="border:none;padding:.5rem .2rem">Marathi - ' . $row["Marathi"] . '   </li>
-              </div>
-                <div class="col text-center">      <li class="list-group-item" style="border:none;padding:.5rem .2rem">Science - ' . $row["Science"] . ' </li>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col text-center">
-                  <li class="list-group-item"  style="border:none;padding:.5rem .2rem">Socialstudies - ' . $row["Socialstudies"] . '   </li>
-                </div>
-                  <div class="col text-center">      <li class="list-group-item" style="border:none;padding:.5rem .2rem">Maths - ' . $row["Maths"] . ' </li>
-                  </div>
-                  </div>
-            </ul>
-            </div>
-            <div class="card-footer bg-transparent border-dark"><div class="row">
-            <div class="col text-center">
-              Total Marks - ' . $row["totalmarks"] . '  
-            </div>
-              <div class="col text-center">      Percentage - ' . $row["percentage"] . '
-              </div>
-              </div></div>
-              </div>  </div>';
+          echo '<div class="col"><table class="table text-center student-marks-table table-sm table-borderless caption-top" style=";border-style:solid;border-color:#F39C12">
+          <caption style="color:#F39C12"> TEST  '.$i.' <span > - ' . floor($row["percentage"]) . '%   </span> </caption>
+ 
+          <thead>
+            <tr>
+         
+              <th scope="col">English</th>
+              <th scope="col">Marathi</th>
+              <th scope="col">Socialstudies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+        
+              <td>' . $row["English"] . ' </td>
+              <td> ' . $row["Marathi"] . '</td>
+              <td>' . $row["Socialstudies"] . ' </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <thead>
+            <tr>
+        
+              <th scope="col">Hindi</th>
+              <th scope="col">Science</th>
+              <th scope="col">Maths</th>
+            </tr>
+          </thead>
+            <tr>
+             
+              <td>' . $row["Hindi"] . '</td>
+              <td>' . $row["Science"] . '</td>
+              <td> ' . $row["Maths"] . ' </td>
+            </tr>
+          </tbody>
+        </table></div>';
+        
           
       }
     }   
  echo'  </div></div>';
-// echo' <div class="row">';
+
 }  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

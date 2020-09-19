@@ -11,11 +11,11 @@ $defaulter=0;
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" href="logo.png" >
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 
-  <title>Hello, world!</title>
+  <title>Ranking</title>
 </head>
 
 <body style="background-color:#292b2c">
@@ -72,9 +72,9 @@ $defaulter=0;
   
    <thead>
       <tr>
-        <th scope="col" style=width:13.33%>Roll No </th>
-        <th scope="col" style=width:33.33%>Full Name</th>
-        <th scope="col" style=width:33.33%>Percentage</th>
+        <th scope="col" >Roll No </th>
+        <th scope="col" >Full Name</th>
+        <th scope="col" >Percentage</th>
         
       </tr> </thead><tbody>';
   while ($row = mysqli_fetch_assoc($result)) {
@@ -114,9 +114,9 @@ $defaulter=0;
   echo '<br><h3 style="color:#F39C12">Acheivers </h3><table class="table table-warning  table-sm table-bordered " style=width:50%;margin-left:25%;margin-right:25%;>
     <thead>
       <tr>
-      <th scope="col" style=width:13.33%>Roll No </th>
-      <th scope="col" style=width:33.33%>Full Name</th>
-      <th scope="col" style=width:33.33%>Percentage</th>
+      <th scope="col" >Roll No </th>
+      <th scope="col" >Full Name</th>
+      <th scope="col" >Percentage</th>
         
       </tr> </thead><tbody>';
   while ($row = mysqli_fetch_assoc($result)) {
@@ -156,9 +156,9 @@ $defaulter=0;
   echo '<br><h3 style="color:#F39C12">Defaulters </h3><table class="table table-danger  table-sm table-bordered " style=width:50%;margin-left:25%;margin-right:25%;>
     <thead>
       <tr>
-      <th scope="col" style=width:13.33%>Roll No </th>
-      <th scope="col" style=width:33.33%>Full Name</th>
-      <th scope="col" style=width:33.33%>Percentage</th>  
+      <th scope="col" >Roll No </th>
+      <th scope="col" >Full Name</th>
+      <th scope="col" >Percentage</th>  
         
       </tr> </thead><tbody>';
   while ($row = mysqli_fetch_assoc($result)) {

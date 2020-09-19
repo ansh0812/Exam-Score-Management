@@ -8,15 +8,27 @@ require('./connection.php');
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="logo.png" >
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 <style>
-
+@media all and (max-width: 968px){
+  .addmarks{
+    width:100%;
+    margin-top:10%;
+   
+  }
+  .del{
+    width:100%;
+    margin-top:10%;
+   
+  }
+}
 
 .dropdown-toggle::after{
   display: none!important;
 }
+
 </style>
     <title>Modify Student</title>
   </head>
@@ -180,12 +192,12 @@ require('./nav.php');
 
 
 
-    <div class="container ">
+    <div class="container-lg ">
 
     <h2 class="" style="color:whitesmoke"> View &  Modify  Student Details</h2>
         <hr>
 
-    <table class="table  table-responsive text-center ">
+  <div class="table-responsive">  <table class="table  table-responsive text-center ">
   <thead>
     <tr>
       <th scope="col" class="table-dark" style="color:#F39C12" >Sr No</th>
@@ -196,7 +208,7 @@ require('./nav.php');
       <th scope="col" class="table-dark" style="color:#F39C12" >Gender</th>
       <!-- <th scope= class="table-dark" style="color:#F39C12" "col">First</th> -->
       <th scope="col" class="table-dark" style="color:#F39C12" >Standard</th>
-      <th scope="col" class="table-dark" style="color:#F39C12" >Action</th>
+      <th scope="col" class="table-dark" style="color:#F39C12;" >Action</th>
     </tr>
   </thead>
 <?php 
@@ -220,10 +232,10 @@ while ($row=mysqli_fetch_assoc($result)) {
   <td>'.$row["gender"].'</td>
 
   <td>'.$row["standard"].'</td>
-  <td>
+  <td colspan="2">
       <button class="btn  edit" style="color:back;background-color:#F39C12"  >EDIT</button>
   <button style="color:back;background-color:#F39C12" class="btn del" id='.$row["srno"].'>DELETE</button>
-  <a href="./addmarks.php?id='.$row["srno"].'"> <button class="btn "style="color:back;background-color:#F39C12" >ADD MARKS</button></a>
+  <a href="./addmarks.php?id='.$row["srno"].'"> <button class="btn addmarks"style="color:back;background-color:#F39C12" >ADD MARKS</button></a>
 
   </td>
 <td style="display:none;">'.$row["srno"].'</td>
@@ -231,7 +243,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 ';
 }
 echo '</tbody>
-</table>';
+</table></div>';
 ?>
     </div>
   <!-- [button1,button2,button3,button 10...........] -->
